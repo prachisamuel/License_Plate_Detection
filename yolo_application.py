@@ -109,12 +109,19 @@ def process_media(input_path, output_path):
         st.error(f"Unsupported file type: {file_extension}")
         return None
 
-if not os.path.exists("temp"):
-    os.makedirs("temp")
+TEMP_DIR = "temp"
+if not os.path.exists(TEMP_DIR):
+    try:
+        os.makedirs(TEMP_DIR)
+        st.write(f"Created directory: {TEMP_DIR}")
+    except Exception as e:
+        st.error(f"Failed to create directory: {e}")
+else:
+    st.write(f"Directory already exists: {TEMP_DIR}")
 
 if uploaded_file is not None:
-    input_path = os.path.join("temp", uploaded_file.name)
-    output_path = os.path.join("temp", f"output_{uploaded_file.name}")
+    input_path = os.path.join(TEMP_DIR, uploaded_file.name)
+    output_path = os.path.join(TEMP_DIR, f"output_{uploaded_file.name}")
     try:
         with open(input_path, "wb") as f:
             f.write(uploaded_file.getbuffer())
