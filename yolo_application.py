@@ -13,7 +13,7 @@ uploaded_file = st.file_uploader("Upload an image or video", type=["jpg", "jpeg"
 
 # Load YOLO model
 try:
-    model = YOLO(r'C:\Users\prach\Documents\GitHub\License_Plate_Detection\best_license_plate_model.pt')
+    model = YOLO('best_license_plate_model.pt')
     print("Model loaded successfully.")
 except Exception as e:
     print(f"Error loading YOLO model: {e}")
@@ -111,13 +111,7 @@ def process_media(input_path, output_path):
 
 TEMP_DIR = "temp"
 if not os.path.exists(TEMP_DIR):
-    try:
-        os.makedirs(TEMP_DIR)
-        st.write(f"Created directory: {TEMP_DIR}")
-    except Exception as e:
-        st.error(f"Failed to create directory: {e}")
-else:
-    st.write(f"Directory already exists: {TEMP_DIR}")
+    os.makedirs(TEMP_DIR)
 
 if uploaded_file is not None:
     input_path = os.path.join(TEMP_DIR, uploaded_file.name)
