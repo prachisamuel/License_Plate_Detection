@@ -6,6 +6,14 @@ This project is a machine learning-based application designed to detect license 
 
 ---
 
+## Live Application
+
+The application is deployed on **Streamlit Community Cloud**. You can access it using the following link:
+
+[License Plate Detection Web App](https://licenseplatedetection-vslwwyk2qmgennf8oqpcz4.streamlit.app/)
+
+---
+
 ## Project Components
 
 ### 1. Model Training (`cars-license-plate-yolov8.ipynb`)
