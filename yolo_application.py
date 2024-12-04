@@ -109,6 +109,9 @@ def process_media(input_path, output_path):
         st.error(f"Unsupported file type: {file_extension}")
         return None
 
+if not os.path.exists("temp"):
+    os.makedirs("temp")
+
 if uploaded_file is not None:
     input_path = os.path.join("temp", uploaded_file.name)
     output_path = os.path.join("temp", f"output_{uploaded_file.name}")
